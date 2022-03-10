@@ -29,7 +29,7 @@ long long base_conv(int base, string number)
  * 5  / 2 = 2 mod 1
  * 2  / 2 = 1 mod 0
  * 1  / 2 = 0 mod 1
- * ans = 1101
+ * ans = 1011(余りを下から読む)
  */
 // 10進法から2~9進法に変換する
 string decimal_conv(int base, long long number)
