@@ -31,7 +31,7 @@ long long base_conv(int base, string number)
  * 1  / 2 = 0 mod 1
  * ans = 1101
  */
-// 10進法から2~9進法に変更する
+// 10進法から2~9進法に変換する
 string decimal_conv(int base, long long number)
 {
 	string ans;
