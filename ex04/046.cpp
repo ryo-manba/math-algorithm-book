@@ -28,7 +28,7 @@ int	r, c;
 int sy, sx, gy, gx;
 char maps[100][100];
 int	dist[100][100];
-int	ans;
+
 queue<pair<int,int>> que;
 
 void check_and_push(int y, int x, int depth)
@@ -46,19 +46,18 @@ int main()
 	cin >> sy >> sx;
 	cin >> gy >> gx;
 
-	rep(i,1,r+1) rep(j,1,c+1) cin >> maps[i][j];
+	rep(i,1,r) rep(j,1,c) cin >> maps[i][j];
 
-	rep(i,1,100) rep(j,1,100) dist[i][j] = -1;
+	rep(i,1,99) rep(j,1,99) dist[i][j] = -1;
 	que.push({sy, sx});
 	dist[sy][sx] = 0;
+
 	while (!que.empty())
 	{
-		pair<int,int> pos = que.front();
+		int y = que.front().first;
+		int x = que.front().second;
 		que.pop();
-		check_and_push(pos.first, pos.second + 1, dist[pos.first][pos.second]);
-		check_and_push(pos.first, pos.second - 1, dist[pos.first][pos.second]);
-		check_and_push(pos.first + 1, pos.second, dist[pos.first][pos.second]);
-		check_and_push(pos.first - 1, pos.second, dist[pos.first][pos.second]);
+		rep(i,4) check_and_push(y + dy[i], x + dx[i], dist[y][x]);
 	}
 	cout << dist[gy][gx] << endl;
 	return 0;
